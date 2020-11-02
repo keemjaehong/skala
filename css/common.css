@@ -1,0 +1,197 @@
+@charset "UTF-8";
+*, *:before, *:after {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, .1);
+    outline: none;
+}
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,address,code,em,img,strong,sub,sup,b,u,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figure,figcaption,footer,header,hgroup,menu,nav,section,main,audio,video {margin: 0; padding: 0;}
+
+/*html5추가 시멘틱엘리먼트를 익스하위버전에서 블럭으로 인식되도록함*/
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,main {display: block}
+
+/* button태그에 손모양 커서 */
+button {cursor: pointer}
+/* 익스하위버전에서 이미지 선없애기 */
+fieldset,img {border: 0; vertical-align: top}
+/* 리스트 기호 빼기 */
+ol,ul {list-style: none}
+/* 태그 기본 기울임꼴 제거 */
+address,em {font-style: normal}
+/* 페이지안에서 가장 많은 링크색 지정 */
+a {text-decoration: none; /*color: #1c1c1c*/}
+/* iframe으로 외부컨텐츠를 연결했을때
+외부컨텐츠안쪽내용이 우리페이지에 영향을 주지못하도록 가려줌
+*/
+iframe {overflow: hidden; border: 0; vertical-align: top;}
+/* 칸의 선을 합치기, 칸의 간격없애기, 가로를 늘려줌 */
+table {border-collapse: collapse; border-spacing: 0; width: 100%; table-layout: fixed;}
+/* 굵기 빼고 헤딩태그 폰트크기를 body에 선언한 크기와 일치시킴 */
+h1,h2,h3,h4,h5,h6 {font-weight: normal; font-size: 100%}
+/* 폼요소의 높이가 다를때 요소끼리 세로정렬시킴 */
+input,select,textarea,button {vertical-align: middle; margin: 0; padding: 0; -webkit-tap-highlight-color: rgba(0,0,0,.1);}
+/* textarea 리사이즈기능 빼기 */
+textarea {resize: none}
+/* 페이지안의 모든 폰트의 줄간격을 1.5로 통일시킴
+모바일 크롬, 모바일 사파리 브라우져의 텍스트 자동확대 방지
+*/
+body {line-height: 1.5; -webkit-text-size-adjust:none;}
+
+/* legend,caption,메뉴제목,섹션제목 블라인드 */
+legend,caption,.blind {position: absolute; overflow: hidden; clip: rect(0 0 0 0); margin: -1px; width: 1px; height: 1px}
+
+/* 공통스타일 */
+body,input,select,textarea,button,table {
+/*    아이폰 서체가 있을경우 해당폰트로 나오며 없을경우 스마트폰 기본고딕체로 나옴*/
+    font-family: 'Montserrat','Noto Sans KR','Helvetica Neue','Apple SD Gothic Neo',sans-serif;
+    font-size: 20px;
+    color: #000;
+    
+}
+
+a {font-size:20px; color: #333;}
+.clearfix:after {content: '';clear: both;display: block;}
+
+/* placeholder공통 */
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #bbbbbb;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #bbbbbb;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #bbbbbb;
+  opacity: 1; /* Firefox */
+}
+
+/* 폼요소 공통스타일 */
+/* 텍스트박스 공통스타일 */
+input[type="text"],input[type="password"] {border: 1px solid #ccc;height: 45px;width: 100%;box-sizing: border-box;padding: 0 20px;color: #666;font-size: 16px;font-weight: 400; cursor: auto;}
+
+/* 체크박스 공통스타일 */
+.input_box {padding-top: 10px;}
+input[type="checkbox"] + label {position: relative; padding-left: 30px; cursor: pointer;}
+input[type="checkbox"] + label:before {content: '';position: absolute;left: 0px;top: 50%;transform: translateY(-50%);width:20px;height: 20px;z-index: 10;background: url(../images/icons.png) no-repeat 0 -40px;}
+input[type="checkbox"]:checked + label:before {background-position: -40px -40px;}
+
+/* 라디오버튼 공통 */
+input[type="radio"] + label {position: relative; padding-left: 26px; cursor: pointer;}
+input[type="radio"] + label:before {content: '';position: absolute;left: 0;top: 50%;transform: translateY(-50%);width:21px;height: 21px;background: url(../images/icons.png) no-repeat 0 -80px;}
+input[type="radio"]:checked + label:before {background-position-x:-40px;}
+
+/* 셀렉트 공통 */
+.select_wrap {display: inline-block;position: relative;float: left; width: 100%; height: 45px;}
+/* 익스플로러 셀렉트 화살표 제거 */
+select::-ms-expand {display: none;}
+.select_wrap>select {position: static; width: 100%;height: 45px; font-size: 17px;color: #666;font-weight: 500;padding-left: 20px;-moz-appearance: none;/* 파이어폭스 */-webkit-appearance: none;/* 크롬, 사파리 */appearance: none; border: 1px solid #ccc;}
+.select_wrap:after {content: '';position: absolute;right: 25px;top: 50%;margin-top: -3px;width: 0;height: 0;border-top: 6px solid #4a4a4a;border-right: 4px solid transparent;border-bottom: 4px solid transparent;border-left: 5px solid transparent;pointer-events: none;}
+.select_wrap>select option {font-weight: 300; color: #bbb;}
+
+/* input file 공통스타일 */
+.file_wrap {border: 2px solid #ddd;width:466px;padding-right: 98px;box-sizing: border-box;position: relative;float: left;}
+.file_wrap input[type="text"] {height: 41px;background: none !important;}
+.file_wrap label {position: absolute;right: 0;top: 0;width:98px;line-height: 41px;color:#009223;font-weight: 500;letter-spacing: -0.05em;text-align: center;cursor: pointer;}
+.file_wrap label:before {content: '';position: absolute;left: 0;top: 50%;width:2px;height: 16px;margin-top: -8px;background: #e8e8e8;}
+
+/* datepicker 달력 선택 */
+/* checkin 요소를 기준으로 datepicker의 위치를 강제 조정 */
+#ui-datepicker-div {width: 300px; left: 0 !important; top: 45px !important; border: 1px solid #c3c3c3; background: #fff; box-shadow: 0 6px 12px rgba(0,0,0,.175); padding: 0; margin: 0; font-size: 16px;}
+#ui-datepicker-div:before {content: '';width: 10px;height: 10px;top: -6px;right: 53px;display: inline-block;border: 1px solid #c3c3c3;border-right: none;border-bottom: none;background: #fff;transform:rotateZ(45deg);position: absolute;}
+#ui-datepicker-div .ui-datepicker-prev {width: 30px; height: 26px; background: url(../images/arr_prev.svg) no-repeat 50% 50%; background-size: auto 16px; left: 2px; top: 2px;cursor: pointer;}
+#ui-datepicker-div .ui-datepicker-next {width: 30px; height: 26px; background: url(../images/arr_next.svg) no-repeat 50% 50%; background-size: auto 16px; right: 2px; top: 2px;cursor: pointer;}
+#ui-datepicker-div .ui-datepicker-prev:hover {background-color: #eee;}
+#ui-datepicker-div .ui-datepicker-next:hover {background-color: #eee;}
+#ui-datepicker-div .ui-datepicker-title {color: #333; font-weight: 600;}
+#ui-datepicker-div td span {text-align: center; color:#e5e5e5;}
+#ui-datepicker-div td a {text-align: center; width:32px; line-height: 32px; padding: 0;border-radius: 50%;}
+#ui-datepicker-div td a:hover {background: #e5e5e5;}
+/* 주말 빨간색 처리 */
+#ui-datepicker-div .ui-datepicker-week-end a {color: #f16f5a; text-align: center;}
+#ui-datepicker-div .ui-datepicker-today a {background: #00ffd8; color: #fff;}
+/* 오늘 날짜에 hover 시 원래 배경색 넣기 */
+#ui-datepicker-div .ui-datepicker-today a:hover {background: #00ffd8;}
+/* 다른 달의 글자 색상 바꾸기 */
+#ui-datepicker-div .ui-datepicker-other-month a {color: #e5e5e5;}
+#ui-datepicker-div .ui-datepicker-buttonpane {padding: 0;margin: 0;}
+#ui-datepicker-div .ui-datepicker-current {float: left;width: 50%;border: none;line-height: 35px;color: #fff;font-size: 13px;margin: 0;padding: 0;background: #007cf8;}
+#ui-datepicker-div .ui-datepicker-close {float: left;;width: 50%;border: none;line-height: 35px;color: #fff;font-size: 13px;margin: 0;padding: 0;background: #e5e5e5;}
+
+
+
+body {transition: all 0.5s;}
+#wrap {min-width: 1580px; position: relative; overflow: hidden;}
+
+#header {z-index: 9999;}
+#header .header_inner {text-align: center;}
+#header .logo {margin: 16px 100px 0 100px;float: left;}
+#header .logo a {display: block;}
+#header .logo a img {width: 197px; height: 100%;}
+
+
+/* gnb */
+#header .gnb {display: inline-block; height: 80px; vertical-align: top; margin-left: -50px;}
+#header .gnb .depth1 > li {float: left; margin-right: 60px;}
+#header .gnb > .depth1 > li:first-child {margin-right: 80px;}
+#header .gnb > .depth1 > li:first-child>a {position: relative;}
+#header .gnb > .depth1 > li:first-child>a:after {content: ''; position: absolute; right: -20px; top: 50%; border-right:7px solid transparent;border-bottom:7px solid #333; transform: translateY(-50%) rotateZ(-45deg);}
+#header .gnb > .depth1 > li:last-child a {background: #007cf8;color: #fff;padding: 0 20px;}
+#header .gnb .depth1 > li > a {display:block; line-height: 80px; font-weight: 600; font-size: 18px; letter-spacing: -0.02em;}
+#header .gnb .depth1 > li:hover > a {color: #007cf8;}
+#header .gnb .depth1 > li:last-child:hover > a {color: #fff;}
+#header .gnb > .depth1 > li .depth2 {width: 130%;z-index: 10;padding: 10px 0;background: #fafafa;box-shadow: rgba(32, 32, 32, 0.2) 0px 0px 10px 0px;display: none;border-top: 3px solid #007cf8;}
+#header .gnb > .depth1 > li:first-child .depth2 li a {display: block;text-align: left;padding-left: 20px;font-size: 16px; font-weight: 500;line-height: 35px;}
+
+
+/* gnb 리스트 메뉴 hover 처리 */
+#header .gnb > .depth1 > li:first-child:hover > a:after {border-bottom-color: #007cf8;}
+#header .gnb > .depth1 > li:first-child:hover .depth2 {display: block;}
+#header .gnb > .depth1 > li:first-child .depth2 li:hover a {background: #007cf8;color: #fff;}
+
+/* gnb 유틸 wrap */
+#header .util_wrap {display: block; float: right;margin-right: 120px;}
+#header .util_wrap .sign_up {float: left; line-height: 80px; font-weight: 600; font-size: 18px; letter-spacing: -0.02em;}
+#header .util_wrap .lang_wrap {float: left; margin-left: 50px;}
+#header .util_wrap .lang_wrap li {float: left;}
+#header .util_wrap .lang_wrap li:first-child {margin-right: 16px; position: relative;}
+#header .util_wrap .lang_wrap li:first-child:after {content: '';position: absolute;width: 2px;height: 12px;top: 50%;right: -9px;transform: translateY(-50%);background: #666;}
+#header .util_wrap .lang_wrap li a {line-height: 80px; font-weight: 600; font-size: 18px; letter-spacing: -0.02em;}
+
+
+
+
+/* 푸터 */
+#footer {background: #007cf8;font-size: 16px; color: #fff;}
+#footer .footer_inner {width: 1180px;padding: 50px 0;margin: 0 auto;overflow: hidden;}
+#footer .footer_left {float: left; width: 250px; height: 400px;}
+#footer .footer_left .footer_logo {margin: 7px 0 0 7px; width: 100%;}
+#footer .footer_left .footer_logo a {display: block;}
+#footer .footer_left .footer_logo a img {width: 164px; height: 100%;}
+
+
+
+#footer .footer_left .footer_menu {overflow: hidden; margin-top: 42px; padding-left: 10px;}
+#footer .footer_left .footer_menu li {margin-top: 10px;}
+#footer .footer_left .footer_menu li a {font-size: 16px; color: #fff;line-height: 25px;}
+#footer .footer_left .footer_menu li:hover a {border-bottom: 1px solid #fff;}
+#footer .footer_left .copyright {margin-top: 107px; padding: 0 60px 0 10px;}
+
+#footer .footer_mid {float: left; width: 370px; height: 400px; margin-right: 60px;}
+#footer .footer_mid .sns_wrap {padding-bottom: 25px;border-bottom: 1px solid #fff;}
+#footer .footer_mid .sns_wrap .tit {font-size: 20px;font-weight: 600; margin-bottom: 5px;}
+#footer .footer_mid .sns_wrap .list_sns {overflow: hidden; margin-left: -10px;}
+#footer .footer_mid .sns_wrap .list_sns li {float: left; margin-right: 10px;}
+#footer .footer_mid .sns_wrap .list_sns li:nth-child(2) {margin-right: 21px;}
+#footer .footer_mid .sns_wrap .list_sns li a img {height: 44px;}
+
+
+#footer .footer_mid .subscribe_wrap {margin-top: 30px;}
+#footer .footer_mid .subscribe_wrap .tit {font-size: 20px;font-weight: 600;margin-bottom: 5px;}
+#footer .footer_mid .subscribe_wrap p {margin-bottom: 10px;}
+#footer .footer_mid .subscribe_wrap .box_subscribe .subscribe {float: left; width: 75%; border: none; height: 40px; font-size: 16px;}
+#footer .footer_mid .subscribe_wrap .box_subscribe .subscribe::placeholder {font-size: 16px;}
+#footer .footer_mid .subscribe_wrap .box_subscribe .btn_subscribe {width: 25%; border: none; background: #fff;line-height: 40px; font-size: 16px; border-left: 1px solid #eee;}
+
+#footer .footer_mid address {display: block; margin-top: 62px;}
+
+
+
+#footer .footer_right {float:left; width: 500px; height: 400px;}
